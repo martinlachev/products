@@ -42,7 +42,7 @@ products/
 ```
 
 ## Getting Started
-1. Locally I have use flutter `3.29.3` so you may need to update your flutter version or use fvm (Flutter Version Management) to manage versions.
+1. Locally I have used flutter `3.29.3` so you may need to update your flutter version or use fvm (Flutter Version Management) to manage versions.
 2 . Run `flutter pub get` to install dependencies in all modules.
 3. There is a .vscode folder with recommended settings for the project.
 4. Open the project in your IDE and run the app on your desired platform (mobile or desktop).
