@@ -10,6 +10,9 @@ abstract class BaseBloc<State extends BaseState>
 
   BaseBloc(super.baseBlocState) {
     on<StatusChanged>(_onStatusChanged);
+    on<Initialized>(onInitialized);
+
+    add(Initialized());
   }
 
   void onInitialized(Initialized event, Emitter<State> emit) async {}
