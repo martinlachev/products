@@ -7,7 +7,6 @@ part 'product_event.dart';
 part 'product_state.dart';
 
 class ProductBloc extends BaseBloc<ProductState> {
-  int _nextId = 0;
   static const int _batchSize = 20;
 
   ProductBloc() : super(const ProductState()) {
@@ -38,15 +37,14 @@ class ProductBloc extends BaseBloc<ProductState> {
         description: 'Description for product $id',
       );
     });
-    _nextId += _batchSize;
-    emit(state.copyWith(products: initial, hasReachedMax: false));
+    emit(state.copyWith(products: initial));
   }
 
   void _onLoadMoreProducts(
     LoadMoreProducts event,
     Emitter<ProductState> emit,
   ) async {
-    if (state.hasReachedMax || state.isLoadingMore) return;
+    if (state.isLoadingMore) return;
 
     emit(state.copyWith(isLoadingMore: true));
 
@@ -63,16 +61,8 @@ class ProductBloc extends BaseBloc<ProductState> {
       );
     });
 
-    _nextId += _batchSize;
-
     final all = List<Product>.from(state.products)..addAll(more);
-    emit(
-      state.copyWith(
-        products: all,
-        hasReachedMax: _nextId > 100,
-        isLoadingMore: false,
-      ),
-    );
+    emit(state.copyWith(products: all, isLoadingMore: false));
   }
 
   FutureOr<void> _onAddProduct(AddProduct event, Emitter<ProductState> emit) {
