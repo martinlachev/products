@@ -1,5 +1,9 @@
 export 'model/product.dart';
-export '../product_routes.dart';
+export 'product_routes.dart';
 export 'bloc/product_bloc.dart';
-export 'ui/product_screen.dart';
+export 'ui/products_screen.dart';
+export 'ui/widgets/product_grid.dart';
 export 'ui/widgets/product_card.dart';
+export 'ui/widgets/responsive_padding.dart';
+export 'ui/layouts/products_desktop_layout.dart';
+export 'ui/layouts/products_mobile_layout.dart';

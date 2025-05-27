@@ -22,7 +22,7 @@ enum ProductRoutes implements AppRoute {
           case ProductRoutes.products:
             return BlocProvider(
               create: (context) => ProductBloc(),
-              child: const ProductGridPage(),
+              child: const ProductsScreen(),
             );
           case ProductRoutes.productDetail:
             final product = state.extra as Product?;
